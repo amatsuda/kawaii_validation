@@ -1,5 +1,4 @@
 require "kawaii_validation/version"
+require 'kawaii_validation/validates_with_block'
 
-module KawaiiValidation
-  # Your code goes here...
-end
+ActiveModel::Validations::ClassMethods.send :prepend, KawaiiValidation::ValidatesWithBlock
