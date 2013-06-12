@@ -1,16 +1,18 @@
 require 'active_support/all'
 require 'active_record'
+require 'kawaii_validation/attributed_validator'
 require 'kawaii_validation/non_attributed_validator'
 
 module KawaiiValidation
   module ValidatesWithBlock
     def validates(*attributes, &block)
       if block
-        if attributes.any?
-          super
+        validates_block_validator = if attributes.any?
+          KawaiiValidation::AttributedValidator.new self, attributes
         else
-          KawaiiValidation::NonAttributedValidator.new(self).instance_eval &block
+          KawaiiValidation::NonAttributedValidator.new self
         end
+        validates_block_validator.instance_eval &block
       else
         super
       end
