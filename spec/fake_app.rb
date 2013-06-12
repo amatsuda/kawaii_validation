@@ -1,0 +1,18 @@
+# config
+ActiveRecord::Base.establish_connection(:adapter => 'sqlite3', :database => ':memory:')
+
+module KawaiiValidationTestApp
+  Application = Class.new(Rails::Application) do
+    config.active_support.deprecation = :log
+  end.initialize!
+end
+
+# models
+class User < ActiveRecord::Base; end
+
+# migrations
+class CreateAllTables < ActiveRecord::Migration
+  def self.up
+    create_table(:users) {|t| t.string :name; t.string :email; t.integer :age}
+  end
+end
