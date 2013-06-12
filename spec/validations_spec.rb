@@ -65,7 +65,7 @@ describe 'Model#validates with a block' do
     before do
       User.class_eval do
         validates :email do
-          length maximum: 100
+          size maximum: 100
           format with: /@/
         end
         validates :name, :age do
