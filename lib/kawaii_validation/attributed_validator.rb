@@ -6,7 +6,7 @@ module KawaiiValidation
   # validates(:title) do
   #   presence :if => -> { true }
   # end
-  class AttributedValidator < BasicObject
+  class AttributedValidator < (Rails::VERSION::MAJOR == 4) ? ::ActiveSupport::ProxyObject : ::ActiveSupport::BasicObject
     include ::ActiveModel::Validations::HelperMethods
 
     def initialize(klass, *attributes)
