@@ -1,27 +1,31 @@
 require 'active_support/all'
 require 'active_model/validations'
+require 'active_model/validations/with'
 
 module KawaiiValidation
-  class AttributedValidator
-    # validates(:title) do
-    #   presence :if => -> { true }
-    # end
+  # validates(:title) do
+  #   presence :if => -> { true }
+  # end
+  class AttributedValidator < BasicObject
+    include ::ActiveModel::Validations::HelperMethods
+
     def initialize(klass, *attributes)
-      @klass, @attributes = klass, attributes
+      @klass, @attributes = klass, *attributes
     end
 
-    ActiveRecord::Base.public_methods(false).grep(/^validates_(.*)_of/) { $1 }.each do |name|
-      define_method name do |options = {}, &block|
-        @klass.send "validates_#{name}_of", *(options.any? ? @attributes + [options] : @attributes)
+    def method_missing(name, *args)
+      if @klass.respond_to? "validates_#{name}_of"
+        @klass.send "validates_#{name}_of", *(args.any? ? @attributes + args : @attributes)
+      else
+        key = "#{name}Validator"
+        validator = begin
+          key.include?('::') ? key.constantize : @klass.const_get(key)
+        rescue NameError
+          raise ArgumentError, "Unknown validator: '#{key}'"
+        end
+
+        @klass.validates_with validator, _merge_attributes(@attributes)
       end
-    end unless instance_methods(false).include? name.to_sym
-
-    ActiveModel::EachValidator.subclasses.each do |validator_class|
-      name = validator_class.name.sub(/^.*::/, '').sub(/Validator$/, '').underscore
-
-      define_method name do |options = {}, &block|
-        @klass.validates_with validator_class, options.merge(attributes: @attributes)
-      end unless instance_methods(false).include? name.to_sym
     end
   end
 end
