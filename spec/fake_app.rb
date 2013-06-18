@@ -3,6 +3,7 @@ ActiveRecord::Base.establish_connection(:adapter => 'sqlite3', :database => ':me
 
 module KawaiiValidationTestApp
   Application = Class.new(Rails::Application) do
+    config.eager_load = false
     config.active_support.deprecation = :log
   end.initialize!
 end

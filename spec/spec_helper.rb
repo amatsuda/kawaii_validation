@@ -4,6 +4,7 @@ $LOAD_PATH.unshift(__dir__)
 require 'rails'
 require 'kawaii_validation'
 require 'fake_app'
+require 'action_controller/railtie' # needed for Rails 4 + RSpec...
 require 'rspec/rails'
 
 RSpec.configure do |config|
