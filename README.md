@@ -1,10 +1,10 @@
 # KawaiiValidation
 
-TODO: Write a gem description
+An ActiveRecord extension that adds more kawaii validation syntax.
 
 ## Installation
 
-Add this line to your application's Gemfile:
+Gemfile:
 
     gem 'kawaii_validation'
 
@@ -12,18 +12,56 @@ And then execute:
 
     $ bundle
 
-Or install it yourself as:
-
-    $ gem install kawaii_validation
-
 ## Usage
 
-TODO: Write usage instructions here
+With this gem bundled, the `validates` method takes a block argument, and the following two new DSLs will be enabled:
+
+* Original code (so-called "Sexy Validation")
+
+```ruby
+class User < ActiveRecord::Base
+  # validations begin
+  validates :name, :age, presence: true
+  validates :name, length: {maximum: 255}
+  validates :age, numericality: {greater_than: 0}
+  # validations end
+
+  ...
+end
+```
+
+* validates + block
+
+```ruby
+class User < ActiveRecord::Base
+  validates do
+    presence_of :name, :age
+    length_of :name, maximum: 255
+    numericality_of :age, greater_than: 0
+  end
+
+  ...
+end
+```
+
+* validates + attributes + block
+
+```ruby
+class User < ActiveRecord::Base
+  validates :name do
+    presence
+    length maximum: 255
+  end
+
+  validates :age do
+    presence
+    numericality greater_than: 0
+  end
+
+  ...
+end
+```
 
 ## Contributing
 
-1. Fork it
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create new Pull Request
+* Send me your pull requests!

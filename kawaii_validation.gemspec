@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = KawaiiValidation::VERSION
   spec.authors       = ["Akira Matsuda"]
   spec.email         = ["ronnie@dio.jp"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = 'Model.validates { presence_of :name }'
+  spec.summary       = 'An ActiveRecord extension that adds more kawaii validation syntax'
   spec.homepage      = ""
   spec.license       = "MIT"
 
