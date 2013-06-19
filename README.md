@@ -12,6 +12,12 @@ And then execute:
 
     $ bundle
 
+## Supported versions ##
+
+* Ruby 2.0, and 2.1 (trunk)
+
+* Rails 3.2.x, 4.0 and 4.1 (edge)
+
 ## Usage
 
 With this gem bundled, the `validates` method takes a block argument, and the following two new DSLs will be enabled:
