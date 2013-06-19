@@ -1,3 +1,3 @@
 module KawaiiValidation
-  VERSION = "0.0.1"
+  VERSION = Gem.loaded_specs['kawaii_validation'].version.to_s
 end
