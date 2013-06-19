@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["ronnie@dio.jp"]
   spec.description   = 'Model.validates { presence_of :name }'
   spec.summary       = 'An ActiveRecord extension that adds more kawaii validation syntax'
-  spec.homepage      = ""
+  spec.homepage      = 'https://github.com/amatsuda/kawaii_validation'
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
