@@ -6,7 +6,7 @@ module KawaiiValidation
   # validates do
   #   presence_of :title, :if => -> { true }
   # end
-  class NonAttributedValidator < (Rails::VERSION::MAJOR == 4) ? ::ActiveSupport::ProxyObject : ::ActiveSupport::BasicObject
+  class NonAttributedValidator < (Rails::VERSION::MAJOR >= 4) ? ::ActiveSupport::ProxyObject : ::ActiveSupport::BasicObject
     include ::ActiveModel::Validations::HelperMethods
 
     def initialize(klass)
