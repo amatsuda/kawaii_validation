@@ -12,7 +12,7 @@ module KawaiiValidation
         else
           KawaiiValidation::NonAttributedValidator.new self
         end
-        validates_block_validator.instance_eval &block
+        validates_block_validator.instance_eval(&block)
       else
         super
       end
