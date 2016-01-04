@@ -2,6 +2,10 @@
 
 An ActiveRecord extension that adds more kawaii validation syntax.
 
+## Motivation
+
+The "Sexy Validation" syntax is not at all sexy.
+
 ## Installation
 
 Gemfile:
@@ -12,7 +16,7 @@ And then execute:
 
     $ bundle
 
-## Supported versions ##
+## Supported versions
 
 * Ruby 2.0, 2.1, 2.2, 2.3, and 2.4 (trunk)
 
