@@ -19,9 +19,9 @@ And then execute:
 
 ## Supported versions
 
-* Ruby 2.0, 2.1, 2.2, 2.3, and 2.4 (trunk)
+* Ruby 2.0, 2.1, 2.2, 2.3, 2.4, and 2.5 (trunk)
 
-* Rails 3.2.x, 4.0, 4.1, 4.2, and 5.0 (edge)
+* Rails 3.2.x, 4.0, 4.1, 4.2, 5.0, 5.1, and 5.2 (edge)
 
 ## Usage
 
