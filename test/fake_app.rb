@@ -12,7 +12,7 @@ end
 class User < ActiveRecord::Base; end
 
 # migrations
-class CreateAllTables < ActiveRecord::Migration
+class CreateAllTables < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migration[5.0] : ActiveRecord::Migration
   def self.up
     create_table(:users) {|t| t.string :name; t.string :email; t.integer :age}
   end
