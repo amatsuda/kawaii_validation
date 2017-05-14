@@ -20,8 +20,8 @@ module KawaiiValidation
         key = "#{name}Validator"
         validator = begin
           key.include?('::') ? key.constantize : @klass.const_get(key)
-        rescue NameError
-          raise ArgumentError, "Unknown validator: '#{key}'"
+        rescue ::NameError
+          rais ::ArgumentError, "Unknown validator: '#{key}'"
         end
 
         @klass.validates_with validator, _merge_attributes(@attributes)
