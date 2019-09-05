@@ -73,6 +73,19 @@ class User < ActiveRecord::Base
 end
 ```
 
+* validates + options + attributes + block
+
+```ruby
+class User < ActiveRecord::Base
+  validates :age, unless: :admin? do
+    presence
+    numericality greater_than: 18
+  end
+
+  ...
+end
+```
+
 ## Contributing
 
 * Send me your pull requests!

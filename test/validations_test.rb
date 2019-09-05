@@ -76,4 +76,26 @@ class ValidationTest < ActiveSupport::TestCase
     assert_equal 1, user.errors[:name].count
     assert_equal 1, user.errors[:age].count
   end
+
+  sub_test_case 'passing validate options to validates' do
+    test 'if: can disable a test' do
+      User.validates :name, if: :should_validate? do
+        presence
+      end
+
+      user = User.new
+      assert user.valid?
+    end
+
+    test 'unless: can enable a test' do
+      User.validates :name, unless: :should_validate? do
+        presence
+      end
+
+      user = User.new
+      refute user.valid?
+      assert_equal 1, user.errors.count
+      assert_equal 1, user.errors[:name].count
+    end
+  end
 end

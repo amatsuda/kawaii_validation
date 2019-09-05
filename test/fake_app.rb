@@ -9,7 +9,9 @@ module KawaiiValidationTestApp
 end
 
 # models
-class User < ActiveRecord::Base; end
+class User < ActiveRecord::Base
+  def should_validate?; false; end
+end
 
 # migrations
 class CreateAllTables < ActiveRecord::VERSION::MAJOR >= 5 ? ActiveRecord::Migration[5.0] : ActiveRecord::Migration
