@@ -2,6 +2,19 @@ language: ruby
 
 matrix:
   include:
+    - rvm: 2.7.0
+      gemfile: gemfiles/Gemfile-rails.5.2.x
+
+    - rvm: 2.6.5
+      gemfile: gemfiles/Gemfile-rails.5.2.x
+    - rvm: 2.6.5
+      gemfile: gemfiles/Gemfile-rails.5.0.x
+
+    - rvm: 2.5.7
+      gemfile: gemfiles/Gemfile-rails.5.2.x
+    - rvm: 2.5.7
+      gemfile: gemfiles/Gemfile-rails.5.0.x
+
     - rvm: 2.4.9
       gemfile: gemfiles/Gemfile-rails.5.2.x
     - rvm: 2.4.9
