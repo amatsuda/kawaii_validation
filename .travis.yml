@@ -3,13 +3,17 @@ language: ruby
 matrix:
   include:
     - rvm: 2.4.9
-      gemfile: gemfiles/Gemfile-rails.5.1.x
+      gemfile: gemfiles/Gemfile-rails.5.2.x
     - rvm: 2.4.9
-      gemfile: gemfiles/Gemfile-rails.5.0.x
+      gemfile: gemfiles/Gemfile-rails.4.2.x
 
+    - rvm: 2.3.8
+      gemfile: gemfiles/Gemfile-rails.5.2.x
     - rvm: 2.3.8
       gemfile: gemfiles/Gemfile-rails.4.2.x
 
+    - rvm: 2.2.10
+      gemfile: gemfiles/Gemfile-rails.5.2.x
     - rvm: 2.2.10
       gemfile: gemfiles/Gemfile-rails.5.1.x
     - rvm: 2.2.10
