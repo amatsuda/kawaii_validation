@@ -1,5 +1,5 @@
 # KawaiiValidation
-[![Build Status](https://travis-ci.org/amatsuda/kawaii_validation.svg?branch=master)](https://travis-ci.org/amatsuda/kawaii_validation)
+[![Build Status](https://github.com/amatsuda/kawaii_validation/actions/workflows/main.yml/badge.svg)](https://github.com/amatsuda/kawaii_validation/actions)
 
 An ActiveRecord extension that adds more kawaii validation syntax.
 
