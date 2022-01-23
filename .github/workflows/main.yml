@@ -60,7 +60,6 @@ jobs:
     runs-on: ubuntu-18.04
 
     env:
-      BUNDLE_GEMFILE: ${{ matrix.gemfile }}
       RAILS_VERSION: ${{ matrix.rails_version }}
 
     steps:
