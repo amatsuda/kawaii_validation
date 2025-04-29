@@ -1,6 +1,9 @@
 $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
 $LOAD_PATH.unshift(File.dirname(__FILE__))
-# load Rails first
+
+# require logger before requiring rails, or Rails 6 fails to boot
+require 'logger'
+# Then load Rails
 require 'rails'
 
 # load the plugin
