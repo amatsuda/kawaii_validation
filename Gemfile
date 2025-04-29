@@ -13,6 +13,8 @@ end
 
 if ENV['RAILS_VERSION'] < '5.1'
   gem 'sqlite3', '< 1.4'
+elsif (ENV['RAILS_VERSION'] <= '8') || (RUBY_VERSION < '3')
+  gem 'sqlite3', '< 2'
 end
 
 gem 'selenium-webdriver'
